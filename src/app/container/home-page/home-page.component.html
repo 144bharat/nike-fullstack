@@ -1,1 +1,69 @@
-<p>home-page works!</p>
+<section class="w-11/12 h-[30%] mx-auto bg-green-400">
+    <img src="../../../assets/images/hero poster.jpg" class="shadow-md"/>
+</section>
+<section class="w-12/12 h-[10%] text-center justify-center my-10">
+    <p>Air Max 90 LV8</p>
+    <p class="font-extrabold md:text-7xl text-5xl barlow-fontfamily">{{'double stacked.' | uppercase}}</p>
+    <p class="font-extrabold md:text-7xl text-5xl barlow-fontfamily"> {{'double fun.' | uppercase}}</p>
+    <p class="md:text-base text-sm mt-6">Place all day, dance all night in elevated, eye-catching comfort.</p>
+    <p class="md:text-base text-sm mb-6">Introducing the all new Max 90 LV8, styled by NewJeans.</p>
+    <div class="flex justify-center items-center gap-4 font-semibold">
+        <button class="rounded-full text-white py-1 px-4 text-center bg-slate-800 md:text-base text-sm">Shop NewJeans' Picks</button>
+        <button class="rounded-full text-white py-1 px-4 text-center bg-slate-800 md:text-base text-sm">Shop Air Max 90 LV8</button>
+    </div>
+</section>
+
+
+<section class="w-11/12 h-[30%] mx-auto my-10">
+    <h1 class="text-2xl my-10">Featured</h1>
+    <div class="w-10/12 mx-auto grid grid-rows-1 grid-cols-3 gap-4">
+        <div class="w-full h-full">
+            <img src="../../../assets/images/women-preview-airmax.png" class=" h-[80%] w-full rounded shadow-md" />
+            <p class="text-slate-600 font-semibold font-[sans-serif] md:text-base text-sm text-center py-[10%]">Women's Air Max</p>
+        </div>
+        <div class=" h-full w-full">
+            <img src="../../../assets/images/mens-preview-airmax.jpeg" class=" h-[80%] w-full rounded shadow-md" />
+            <p class="text-slate-600 font-semibold font-[sans-serif] md:text-base text-sm text-center py-[10%]">Men's Air Max</p>
+        </div>
+        <div class=" h-full w-full">
+            <img src="../../../assets/images/air-max.jpg" class=" h-[80%] w-full rounded shadow-md" />
+            <p class="text-slate-600 font-semibold font-[sans-serif] md:text-base text-sm text-center py-[10%]">Kid's Air Max</p>
+        </div>
+    </div>
+</section>
+
+<section class=" w-11/12 h-[30%] mx-auto my-10">
+    <h1 class="text-2xl my-10">Trending</h1>
+    <video controls autoplay loop>
+        <source src="../../../assets/images/preview.mp4" type="video/mp4">
+    </video>
+</section>
+
+
+<section class="w-12/12 h-[10%] text-center my-10">
+    <p>Nike Alphafly 3</p>
+    <p class="font-extrabold md:text-7xl text-5xl barlow-fontfamily">{{'leave yourself in the dust' | uppercase}}</p>
+    <p class="my-6 md:text-base text-sm">Marathon speed to push beyond what you thought possible.</p>
+    <div class="flex justify-center items-center gap-4 font-semibold">
+        <button class="rounded-full text-white py-1 px-4 text-center bg-slate-800 md:text-base text-sm">Shop</button>
+    </div>
+</section>
+
+<section class="w-11/12 mx-auto h-2/3 my-10">
+    <h1 class="text-2xl my-10">Just In</h1>
+    <div class="mx-auto grid grid-rows-1 grid-cols-2">
+        <div class="z-40">
+            <img src="../../../assets/images/offer.svg"/>
+        </div>
+        <div class="bg-zinc-100 rounded-lg -ml-20"><!--App Drop Starts-->
+            <div class="flex flex-col items-center font-extrabold text-8xl barlowFont w-6/12 mx-auto">
+                <img src="../../../assets/images/Logo_NIKE.svg" class="w-[60%] drop-shadow-lg pt-10"/>
+                <p>APP</p><p>DROP</p>
+            </div>
+            <div class="h-72 w-[60%]  mx-auto">
+                <img [src]="currentImg" class=" duration-700 ease-in-out h-[100%] w-[100%] z-10 drop-shadow-lg" />
+                <button class="rounded-full text-white py-1 px-4 text-center bg-slate-800 md:text-base text-sm">Shop</button>
+            </div>
+        </div><!--App Drop Ends-->
+    </div>
+</section>
