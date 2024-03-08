@@ -1,0 +1,29 @@
+<p-carousel
+  [value]="products"
+  [numVisible]="3"
+  [numScroll]="2"
+  [circular]="true"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template let-product pTemplate="item">
+    <div class="border-1 surface-border border-round m-2 text-center py-5 px-1">
+      <img
+        src="../../../assets/images/{{ product.img }}"
+        alt="carousel images"
+        class="bg-yellow-500 lg:h-[300px] w-full"
+      />
+      <div>
+        <p class="text-xl font-bold my-4">{{ product.name }}</p>
+        <p class="text-sm font-semibold my-4 text-slate-600">
+          {{ product.slogan }}
+        </p>
+        <button
+          class="bg-slate-700 hover:bg-slate-400 text-white font-bold py-2 px-4 border-b-4 border-slate-700 hover:border-slate-500 rounded-full"
+          severity="secondary"
+        >
+          {{ product.button }}
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

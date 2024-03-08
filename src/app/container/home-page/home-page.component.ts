@@ -1,15 +1,16 @@
 import { UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { HomeCarouselComponent } from '../../component/home-carousel/home-carousel.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe,HomeCarouselComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  justInAlternateImgSrc:string[]=["../../../assets/images/thumbnail1.png","../../../assets/images/thumbnail3.png"];
+  justInAlternateImgSrc:string[]=["../../../assets/images/thumbnail1.png","../../../assets/images/thumbnail4.svg"];
 
   intervalId:any=0;
   currentImg = this.justInAlternateImgSrc[0];
