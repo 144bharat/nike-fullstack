@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './find-store.component.css'
 })
 export class FindStoreComponent {
-
 }

@@ -1,6 +1,11 @@
-
-<div class="w-full">
-    <app-header></app-header>
-    <router-outlet />
-    <app-footer></app-footer>
-</div>
+@if (loadAdmin)
+{
+    <app-admin-page></app-admin-page>
+}
+@else {
+    <div class="w-full">
+        <app-header></app-header>
+            <app-main-page></app-main-page>
+            <app-footer></app-footer>
+        </div>
+} 

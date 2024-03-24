@@ -1,26 +1,31 @@
 <header class="myfont-Helveticafamily font-semibold body-font">
-    <div class=" bg-neutral-100 text-xs hidden container mx-auto md:flex flex-wrap py-2 px-10 flex-col md:flex-row items-center">
+    <div class=" bg-neutral-100 text-xs hidden w-full mx-auto md:flex flex-wrap py-2 px-10 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
         <img src="../../../assets/icons/jumpman.png"  class="w-10 h-10 text-white p-2 rounded-full">
       </a>
       <nav class="md:ml-auto flex flex-wrap items-center justify-center">
-        <a class="mr-5 hover:text-gray-900">Find a Store <span>|</span> </a>
+        <a class="mr-5 hover:text-gray-900" [routerLink]="['main/find-store']">Find a Store <span>|</span> </a>
         <a class="mr-5 hover:text-gray-900">Help <span>|</span> </a>
         <a class="mr-5 hover:text-gray-900">Join Us <span>|</span> </a>
-        <a class="mr-5 hover:text-gray-900"  [routerLink]="[ '/sign-up']">Sign In</a>
+        <a class="mr-5 hover:text-gray-900"  [routerLink]="[ 'main/sign-up']">Sign In</a>
       </nav>
     </div>
 
 
     <div class=" py-2 px-10 hidden container mx-auto md:flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <img src="../../../assets/icons/nike.png"  class="w-16 h-14 text-white p-2 rounded-full" [routerLink]="[ '/home']">
+        <img src="../../../assets/icons/nike.png"  class="w-16 h-14 text-white p-2 rounded-full" [routerLink]="[ 'main/home']">
       </a>
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-        <a class="mr-5 hover:text-gray-900">First Link</a>
+        <!-- <a class="mr-5 hover:text-gray-900">First Link</a>
         <a class="mr-5 hover:text-gray-900">Second Link</a>
         <a class="mr-5 hover:text-gray-900">Third Link</a>
-        <a class="mr-5 hover:text-gray-900">Fourth Link</a>
+        <a class="mr-5 hover:text-gray-900">Fourth Link</a> -->
+        
+        <div class="card">
+          <p-megaMenu [model]="items"></p-megaMenu>
+        </div>
+
       </nav>
       <div class="inline-flex items-center py-1 px-3 text-base mt-4 md:mt-0">
         <div>
@@ -30,7 +35,7 @@
           </span>
         </div>
         <img [src]="Nav_fav_imgs" (mouseover)="Nav_fav_imgs = '../../../assets/icons/redfavorite.svg'" (mouseout)="Nav_fav_imgs = '../../../assets/icons/favorite.svg'"  class="transition-opacity w-10 h-10 inline-block text-white p-2 rounded-full">
-        <img [src]="Nav_bag_imgs" (mouseover)="Nav_bag_imgs = '../../../assets/icons/bluebag.svg'" (mouseout)="Nav_bag_imgs = '../../../assets/icons/bag.svg'"  class="w-10 h-10 text-white p-2 rounded-full" [routerLink]="[ '/cart']">
+        <img [src]="Nav_bag_imgs" (mouseover)="Nav_bag_imgs = '../../../assets/icons/bluebag.svg'" (mouseout)="Nav_bag_imgs = '../../../assets/icons/bag.svg'"  class="w-10 h-10 text-white p-2 rounded-full" [routerLink]="[ 'main/cart']">
       </div>
     </div>
 
