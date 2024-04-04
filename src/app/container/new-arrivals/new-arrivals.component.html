@@ -1,39 +1,66 @@
 <div class="container grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
   @for (newarrivaldata of newarrivalData; track $index) {
   <div
-    class="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg"
-  >
-    <img
-      class="h-48 w-full object-cover object-center"
-      src={{newarrivaldata.imgurl}}
-      alt={{newarrivaldata.title}}
-    />
-    <div class="p-4">
-      
-      <h2 class="mb-2 text-sm font-medium dark:text-white text-amber-600">
-        {{newarrivaldata.titleslang}}
+      class="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg"
+    >
+      <img
+        class="h-48 w-full object-cover object-center"
+        src={{newarrivaldata.imgurl}}
+        alt={{newarrivaldata.title}}
+      />
+      <div class="p-4">
+        
+        <h2 class="mb-2 text-sm font-medium dark:text-white text-amber-600">
+          {{newarrivaldata.titleslang}}
+          </h2>
+        <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">
+          {{newarrivaldata.title}}
         </h2>
-      <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">
-        {{newarrivaldata.title}}
-      </h2>
-      <p class="mb-2 text-md dark:text-gray-300 text-gray-700">
-        {{newarrivaldata.subtitle}}
-      </p>
-      <div class="flex items-center">
-        <p class="mr-2 text-md font-semibold text-gray-900 dark:text-white">
-          MRP: {{newarrivaldata.price}}
+        <p class="mb-2 text-md dark:text-gray-300 text-gray-700">
+          {{newarrivaldata.subtitle}}
         </p>
-        <p
-          class="text-base font-medium text-gray-500 line-through dark:text-gray-300"
-        >
-          $25.00
-        </p>
-        <p class="ml-auto text-base font-medium text-green-500">{{newarrivaldata.category}}</p>
+        <div class="flex items-center">
+          <p class="mr-2 text-md font-semibold text-gray-900 dark:text-white">
+            MRP: {{newarrivaldata.price}}
+          </p>
+          <p
+            class="text-base font-medium text-gray-500 line-through dark:text-gray-300"
+          >
+            $25.00
+          </p>
+          <p class="ml-auto text-base font-medium text-green-500">{{newarrivaldata.category}}</p>
+        </div>
       </div>
     </div>
-  </div>
+  }
+  @empty {  
+    <h1 class="text-center mx-auto w-full my-10">No Products To Display.......</h1>
+    <div class="card">
+      <div class="border-round border-1 surface-border p-4 surface-card">
+        <p-skeleton width="100%" height="150px" styleClass="mb-2" borderRadius="16px"></p-skeleton>
+        <div class="grid grid-cols-2 grid-rows-1 gap-4">
+          <p-skeleton width="100%" styleClass="mb-2"></p-skeleton>
+          <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+          <p-skeleton width="25rem" styleClass="mb-2"></p-skeleton>
+          <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton> 
+          <p-skeleton width="25rem" styleClass="mb-2"></p-skeleton> 
+        </div>
+      <div class="flex justify-content-between mt-3">
+        <p-skeleton width="4rem" styleClass="ml-2" height="2rem"></p-skeleton>
+        <p-skeleton width="4rem" styleClass="ml-2" height="2rem"></p-skeleton>
+        <p-skeleton width="5rem" styleClass="mb-2 ml-20"></p-skeleton>
+        
+      </div>
+    </div>
+</div>
+
 }
 </div>
 <p-blockUI [blocked]="this.blockedDocument()">
   <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
 </p-blockUI>
+@if (loading) {
+  <div>
+      <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+  </div>
+}

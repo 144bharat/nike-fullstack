@@ -1,3 +1,7 @@
 .myfont-Helveticafamily{
     font-family: Helvetica;
 }
+:host ::ng-deep .p-megamenu { 
+	font-size: small;
+    background-color: white;
+}

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -16,8 +16,9 @@ export class NewArrivalsService {
   {
     return this.http.post<string>(this.baseurl+'Newarrivals'+'/postnewarrivalsJSON',files);
   }
-  getnewarrivals():Observable<any>
+  getnewarrivals(Category:string):Observable<any>
   {
-    return this.http.get<any>(this.baseurl+'Newarrivals'+'/getnewarrivals');
+    let params = new HttpParams().set('category', Category);
+    return this.http.get<any>(`${this.baseurl}Newarrivals/getnewarrivals`,{params:params});
   }
 }
