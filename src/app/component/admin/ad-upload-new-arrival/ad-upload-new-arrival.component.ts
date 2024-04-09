@@ -23,7 +23,7 @@ export class ADUploadNewArrivalComponent {
     const jsonfile = event.currentTarget.files[0];
     const formobj = new FormData();
     formobj.append("jsonfile",jsonfile);
-    formobj.append("tablename","newArrivals");
+    formobj.append("tablename","kids");
     this.blockedDocument.update(value=>true);
     this.newArrivalsservice.postnewarrivalsJSON(formobj).pipe(
       catchError((error)=>{
