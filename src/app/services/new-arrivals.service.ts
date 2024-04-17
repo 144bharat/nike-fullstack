@@ -10,15 +10,17 @@ export class NewArrivalsService {
   constructor(private http:HttpClient) { }
   postnewarrivalsCSV(files:FormData):Observable<any>
   {
-    return this.http.post<string>(this.baseurl+'Newarrivals'+'/postnewarrivalsCSV',files);
+    return this.http.post<string>(this.baseurl+'Products'+'/postnewarrivalsCSV',files);
   }
   postnewarrivalsJSON(files:FormData):Observable<any>
   {
-    return this.http.post<string>(this.baseurl+'Newarrivals'+'/postnewarrivalsJSON',files);
+    return this.http.post<string>(this.baseurl+'Products'+'/postnewarrivalsJSON',files);
   }
-  getnewarrivals(Category:string):Observable<any>
+  GetProducts(Category:string,TypeOfProductRoute:string):Observable<any>
   {
-    let params = new HttpParams().set('category', Category);
-    return this.http.get<any>(`${this.baseurl}Newarrivals/getnewarrivals`,{params:params});
+    let params = new HttpParams();
+    params = params.append('category', Category);
+    params = params.append('typeOfProductRoute', TypeOfProductRoute);
+    return this.http.get<any>(`${this.baseurl}Products/getProducts`,{params:params});
   }
 }

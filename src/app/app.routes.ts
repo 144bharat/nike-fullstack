@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './container/home-page/home-page.component';
+import { HomePageComponent } from './component/home-page/home-page.component';
 import { CartComponent } from './component/cart/cart.component';
 import { SignUpComponent } from './Credential/sign-up/sign-up.component';
 import { FindStoreComponent } from './component/find-store/find-store.component';
-import { NewArrivalsComponent } from './container/new-arrivals/new-arrivals.component';
+import { ProductsComponent } from './component/products/products.component';
 import { AdminPageComponent } from './Pages/admin-page/admin-page.component';
 
 export const routes: Routes = [
@@ -28,8 +28,8 @@ export const routes: Routes = [
         component: FindStoreComponent,
       },
       {
-        path: 'new-arrival',
-        component: NewArrivalsComponent,
+        path: 'products',
+        component: ProductsComponent,
       },
     ],
   },

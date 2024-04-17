@@ -13,29 +13,30 @@ import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
   standalone: true,
   imports: [BlockUIModule,ProgressSpinnerModule,SkeletonModule,ScrollPanelModule,TriStateCheckboxModule],
   providers:[MessageService],
-  templateUrl: './new-arrivals.component.html',
-  styleUrl: './new-arrivals.component.css'
+  templateUrl: './products.component.html'
 })
-export class NewArrivalsComponent implements OnInit{
+export class ProductsComponent implements OnInit{
   CountSkeleton:number[]=[1,2,3,4,5,6];
   newarrivalData:ProductInterface[]=[];
   blockedDocument=signal(false);
   Category!: string;
+  TypeOfProductRoute!: string;
   constructor(private newarrivalservice:NewArrivalsService,private messageservice:MessageService,private route: ActivatedRoute) {}
   
   ngOnInit(): void {
     this.route.queryParams.subscribe(params=>{
       this.Category = params['Category'];
+      this.TypeOfProductRoute = params['Type'];
       this.blockedDocument.update(value=>true);
-      this.getnewarrivals();
+      this.GetProducts();
       setTimeout(() => {
         this.blockedDocument.update(value=>false);
       }, 1000);
     })
   }
-  getnewarrivals()
+  GetProducts()
   {
-    this.newarrivalservice.getnewarrivals(this.Category).subscribe((res:any)=>{
+    this.newarrivalservice.GetProducts(this.Category,this.TypeOfProductRoute).subscribe((res:any)=>{
       this.newarrivalData = res;
       //Below line is to make the products list random.
       this.newarrivalData.sort(() => Math.random() - 0.5);
