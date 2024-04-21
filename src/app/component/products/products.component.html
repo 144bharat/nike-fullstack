@@ -3,7 +3,7 @@
 <div class="lg:flex hidden sticky top-20 lg:w-1/5 h-[20%]">
   <p-scrollPanel [style]="{ width: '100%', height: '400px' }" styleClass="custombar1">
     <h2 class="text-2xl font-extrabold">
-        New <span class="font-light">{{newarrivalData.length}}</span>
+        {{Title}} <span class="font-light">{{newarrivalData.length}}</span>
     </h2>
     <div class="flex justify-center flex-col">
       <p>
@@ -41,15 +41,30 @@
           MRP: {{ newarrivaldata.price }}
         </p>
         <p
-          class="text-base font-medium text-gray-500 line-through dark:text-gray-300"
+        class="text-base font-medium text-gray-500 line-through dark:text-gray-300"
         >
-          $25.00
-        </p>
-        <p class="ml-auto text-base font-medium text-green-500">
-          {{ newarrivaldata.category }}
-        </p>
-      </div>
+        $25.00
+      </p>
+      <p class="ml-auto text-base font-medium text-green-500">
+        {{ newarrivaldata.category }}
+      </p>
     </div>
+  </div>
+  <p class="mb-2 text-md dark:text-gray-300 text-green-400">
+    @if(newarrivalData[$index].pieces >50)
+    {
+      <p class="mb-2 text-md dark:text-gray-300 text-green-500">
+        {{ newarrivaldata.pieces }} items left in a stock.
+      </p>
+    }@else if (newarrivalData[$index].pieces>10) {
+      <p class="mb-2 text-md dark:text-gray-300 text-amber-500">
+        Limited stock of {{ newarrivaldata.pieces }} items.
+      </p>
+    }@else {
+      <p class="mb-2 text-md dark:text-gray-300 text-red-500">
+        Hurry! only {{ newarrivaldata.pieces }} items left in a stock.
+      </p>
+    }
   </div>
   } @empty {
   <div

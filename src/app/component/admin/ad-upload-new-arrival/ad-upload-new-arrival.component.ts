@@ -25,7 +25,7 @@ export class ADUploadNewArrivalComponent {
     formobj.append("jsonfile",jsonfile);
     formobj.append("tablename","kids");
     this.blockedDocument.update(value=>true);
-    this.newArrivalsservice.postnewarrivalsJSON(formobj).pipe(
+    this.newArrivalsservice.postProductsJSON(formobj).pipe(
       catchError((error)=>{
         throw error;
       })

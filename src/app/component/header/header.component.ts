@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink,NavigationEnd,Router } from '@angular/router';
+import { RouterLink, NavigationEnd, Router } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { MegaMenuItem } from 'primeng/api';
 import { MegaMenuModule } from 'primeng/megamenu';
@@ -14,32 +14,30 @@ export class HeaderComponent implements OnInit {
   Nav_fav_imgs: string = '../../../assets/icons/favorite.svg';
   Nav_bag_imgs: string = '../../../assets/icons/bag.svg';
   showMenu = false;
-  
+
   items: MegaMenuItem[] | undefined;
   isShowOffer: boolean = false;
   /**
    *
-  */
- constructor(private router:Router) {}
- ngOnInit() {
+   */
+  constructor(private router: Router) {}
+  ngOnInit() {
     //checking the navigation end so that we can only show 40% off on home page/and product display page else everywhere it should be hidden.
-    this.router.events.subscribe((event)=>{
-    if(event instanceof NavigationEnd)
-      {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
         switch (event.url) {
           case '/main/sign-up':
             this.isShowOffer = false;
             break;
-        
-            case '/main/cart':
-              this.isShowOffer = false;
-              break;
-          
-        
-              case '/main/find-store':
-                this.isShowOffer = false;
-                break;
-            
+
+          case '/main/cart':
+            this.isShowOffer = false;
+            break;
+
+          case '/main/find-store':
+            this.isShowOffer = false;
+            break;
+
           default:
             this.isShowOffer = true;
             break;
@@ -58,55 +56,70 @@ export class HeaderComponent implements OnInit {
                 {
                   label: 'New Arrivals',
                   routerLink: ['main/products'],
-                  queryParams: { Type:'New-Arrival',Category: 'new' },
-                }
+                  queryParams: { Type: 'New-Arrival',label: 'New Arrivals' },
+                },
               ],
             },
             {
               label: 'New For Men',
               items: [
-                { label: 'Shoes',
-                routerLink:[ 'main/products'],
-                queryParams:{Type:'New-Arrival',Category:'men'} 
-              },
-              { label: 'Clothing',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'New-Arrival',Category:'men'} 
+                {
+                  label: 'Shoes',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'men',label: 'Shoes' },
+                },
+                {
+                  label: 'Clothing',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'men',label: 'Clothing' },
+                },
+                {
+                  label: 'Accessories',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'men',label: 'Accessories' },
+                },
+              ],
             },
-            { label: 'Accessories',
-            routerLink:[ 'main/products'],
-            queryParams:{Type:'New-Arrival',Category:'men'}
-          },
-        ],
-      },
-    ],
-    [
-      {
-        label: 'New For Women',
-        items: [
-          { label: 'Shoes',
-                routerLink:[ 'main/products'],
-                queryParams:{Type:'New-Arrival',Category:'women'} },
-                { label: 'Clothing',
-                routerLink:[ 'main/products'],
-                queryParams:{Type:'New-Arrival',Category:'women'} },
-                { label: 'Accessories',
-                routerLink:[ 'main/products'],
-                queryParams:{Type:'New-Arrival',Category:'women'} },
+          ],
+          [
+            {
+              label: 'New For Women',
+              items: [
+                {
+                  label: 'Shoes',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'women',label: 'Shoes' },
+                },
+                {
+                  label: 'Clothing',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'women',label: 'Clothing' },
+                },
+                {
+                  label: 'Accessories',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'women',label: 'Accessories' },
+                },
               ],
             },
             {
               label: 'New For Kids',
               items: [
-                { label: 'Shoes',
-                routerLink:[ 'main/products'],
-                queryParams:{Type:'New-Arrival',Category:'kids'} },
-                { label: 'Clothing',
-                routerLink:[ 'main/products'],
-                queryParams:{Type:'New-Arrival',Category:'kids'} },
-                { label: 'Accessories',
-                routerLink:[ 'main/products'],
-                queryParams:{Type:'New-Arrival',Category:'kids'} },
+                {
+                  label: 'Shoes',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'kids',label: 'Shoes' },
+                },
+                {
+                  label: 'Clothing',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'kids',label: 'Clothing' },
+                },
+                {
+                  label: 'Accessories',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'New-Arrival', Category: 'kids',label: 'Accessories' },
+                },
               ],
             },
           ],
@@ -120,61 +133,96 @@ export class HeaderComponent implements OnInit {
             {
               label: 'Jordan',
               items: [
-                      { label: 'All Jordan',
-                      routerLink:[ 'main/products'],
-                      queryParams:{Type:'Men',Category:'mens'}
-                      },
-                      { label: 'New Jordan',
-                      routerLink:[ 'main/products'],
-                      queryParams:{Type:'Men',Category:'mens'}
-                      },
-                      { label: 'Jordan Shoes',
-                      routerLink:[ 'main/products'],
-                      queryParams:{Type:'Men',Category:'mens'}
-                      },
-                      { label: 'Jordan Clothing',
-                      routerLink:[ 'main/products'],
-                      queryParams:{Type:'Men',Category:'mens'}
-                      },
-                      { label: 'Jordan Accessories',
-                      routerLink:[ 'main/products'],
-                      queryParams:{Type:'Men',Category:'mens'}
-                      }
-                    ],
-            }
+                {
+                  label: 'All Jordan',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'All Jordan' },
+                },
+                {
+                  label: 'New Jordan',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'New Jordan' },
+                },
+                {
+                  label: 'Jordan Shoes',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Jordan Shoes' },
+                },
+                {
+                  label: 'Jordan Clothing',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Jordan Clothing' },
+                },
+                {
+                  label: 'Jordan Accessories',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Jordan Accessories' },
+                },
+              ],
+            },
           ],
           [
             {
               label: 'Shoes',
-              items: [{ label: 'All Shoes',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }, { label: 'Newest Sneakers',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }, { label: 'Jordan',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }, { label: 'Lifestyle',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }, { label: 'Running',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }],
-            }
+              items: [
+                {
+                  label: 'All Shoes',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'All Shoes' },
+                },
+                {
+                  label: 'Newest Sneakers',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Newest Sneakers' },
+                },
+                {
+                  label: 'Jordan',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Jordan' },
+                },
+                {
+                  label: 'Lifestyle',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Lifestyle' },
+                },
+                {
+                  label: 'Running',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Running' },
+                },
+              ],
+            },
           ],
           [
             {
               label: 'Clothing',
-              items: [{ label: 'All Clothing',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }, { label: 'Sports',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }],
+              items: [
+                {
+                  label: 'All Clothing',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'All Clothing' },
+                },
+                {
+                  label: 'Sports',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Sports' },
+                },
+              ],
             },
             {
               label: 'Accessories',
-              items: [{ label: 'All Accessories',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }, { label: 'Bags & Bagpacks',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Men',Category:'mens'} }],
+              items: [
+                {
+                  label: 'All Accessories',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'All Accessories' },
+                },
+                {
+                  label: 'Bags & Bagpacks',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Men', Category: 'mens',label: 'Bags & Bagpacks' },
+                },
+              ],
             },
           ],
         ],
@@ -186,14 +234,26 @@ export class HeaderComponent implements OnInit {
           [
             {
               label: 'Jordan',
-              items: [{ label: 'All Jordan' }, { label: 'New Jordan' },{ label: 'Jordan Shoes' },{ label: 'Jordan Clothing' },{ label: 'Jordan Accessories' }],
-            }
+              items: [
+                { label: 'All Jordan' },
+                { label: 'New Jordan' },
+                { label: 'Jordan Shoes' },
+                { label: 'Jordan Clothing' },
+                { label: 'Jordan Accessories' },
+              ],
+            },
           ],
           [
             {
               label: 'Shoes',
-              items: [{ label: 'All Shoes' }, { label: 'Newest Sneakers' }, { label: 'Jordan' }, { label: 'Lifestyle' }, { label: 'Running' }],
-            }
+              items: [
+                { label: 'All Shoes' },
+                { label: 'Newest Sneakers' },
+                { label: 'Jordan' },
+                { label: 'Lifestyle' },
+                { label: 'Running' },
+              ],
+            },
           ],
           [
             {
@@ -202,7 +262,10 @@ export class HeaderComponent implements OnInit {
             },
             {
               label: 'Accessories',
-              items: [{ label: 'All Accessories' }, { label: 'Bags & Bagpacks' }],
+              items: [
+                { label: 'All Accessories' },
+                { label: 'Bags & Bagpacks' },
+              ],
             },
           ],
         ],
@@ -214,41 +277,82 @@ export class HeaderComponent implements OnInit {
           [
             {
               label: 'Kids By Age',
-              items: [{ label: 'Older Kids(7-15 years)',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }, { label: 'Younger Kids(4-7 years)',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} },{ label: 'Babies & Toddlers(0-4 years)',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }],
-            }
+              items: [
+                {
+                  label: 'Older Kids(7-15 years)',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Kid', Category: 'kids', Age: '7-15',label: 'Older Kids(7-15 years)' },
+                },
+                {
+                  label: 'Younger Kids(3-7 years)',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Kid', Category: 'kids', Age: '3-7',label: 'Younger Kids(3-7 years)' },
+                },
+                {
+                  label: 'Babies & Toddlers(0-3 years)',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Kid', Category: 'kids', Age: '0-3',label: 'Babies & Toddlers(0-3 years)' },
+                },
+              ],
+            },
           ],
           [
             {
               label: 'Category',
-              items: [{ label: 'Boys',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }, { label: 'Girls',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }],
-            }
+              items: [
+                {
+                  label: 'Boys',
+                  routerLink: ['main/products'],
+                  queryParams: {
+                    Type: 'Kid',
+                    Category: 'kids',
+                    SubCategory: 'boys',
+                    label: 'Boys'
+                  },
+                },
+                {
+                  label: 'Girls',
+                  routerLink: ['main/products'],
+                  queryParams: {
+                    Type: 'Kid',
+                    Category: 'kids',
+                    SubCategory: 'girls',
+                    label: 'Girls'
+                  },
+                },
+              ],
+            },
           ],
           [
             {
               label: 'Clothing',
-              items: [{ label: 'All Clothing',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }, { label: 'Sports',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }],
+              items: [
+                {
+                  label: 'All Clothing',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Kid', Category: 'kids',Itemcategory:'clothing',label: 'All Clothing' },
+                },
+                {
+                  label: 'Sports',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Kid', Category: 'kids',Itemcategory:'clothing',label: 'Sports' },
+                },
+              ],
             },
             {
               label: 'Accessories',
-              items: [{ label: 'All Accessories',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }, { label: 'Bags & Bagpacks',
-              routerLink:[ 'main/products'],
-              queryParams:{Type:'Kid',Category:'kids'} }],
+              items: [
+                {
+                  label: 'All Accessories',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Kid', Category: 'kids',Itemcategory:'accessories',label: 'All Accessories' },
+                },
+                {
+                  label: 'Bags & Bagpacks',
+                  routerLink: ['main/products'],
+                  queryParams: { Type: 'Kid', Category: 'kids',Itemcategory:'accessories',label: 'Bags & Bagpacks' },
+                },
+              ],
             },
           ],
         ],

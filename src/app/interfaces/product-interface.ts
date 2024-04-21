@@ -4,5 +4,6 @@ export interface ProductInterface {
     titleslang:string,
     imgurl:string,
     price:number,
-    category:string
+    category:string,
+    pieces:number
 }
