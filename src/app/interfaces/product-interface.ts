@@ -5,5 +5,9 @@ export interface ProductInterface {
     imgurl:string,
     price:number,
     category:string,
-    pieces:number
+    pieces:number,
+    typeofproductroute:string,
+    itemcategory:string,
+    subcategory:string,
+    age:string,
 }
