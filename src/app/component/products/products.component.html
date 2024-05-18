@@ -5,22 +5,83 @@
     <h2 class="text-2xl font-extrabold">
         {{Title}} <span class="font-light">{{newarrivalData.length}}</span>
     </h2>
-    <div class="flex justify-center flex-col">
-      <p>
-          Sed
-      </p>
-      <p>
-          At
-      </p>
+    <!-- <div class="flex justify-center flex-col"> -->
+      <div class="card flex flex-col justify-items-start items-center gap-3 px-5">
+        <p>Shoes</p>
+        <p>Jackets</p>
+        <p>Hoodies & Swaetshirts</p>
+        <p>Accessories & Equipment</p>
+      </div>
+      <div class="card flex justify-content-center items-center px-5">
+        <p-accordion [activeIndex]="0">
+            <p-accordionTab header="Gender">
+              <div class="card flex flex-col justify-content-center gap-3">
+                <div class="flex align-items-center">
+                    <p-checkbox 
+                        [(ngModel)]="FTRgender"
+                        label="Male" 
+                        name="Male" 
+                        value="Male" (onChange)="FTRGenderGot()"/>
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox 
+                        [(ngModel)]="FTRgender"
+                        label="Female"
+                        name="Female" 
+                        value="Female" (onChange)="FTRGenderGot()" />
+                </div>
+                <div class="flex align-items-center">
+                    <p-checkbox 
+                        [(ngModel)]="FTRgender"
+                        label="Not to say" 
+                        name="Not_to_say" 
+                        value="Not to say" (onChange)="FTRGenderGot()" />
+                </div>
+            </div>
+            </p-accordionTab>
+            <p-accordionTab header="Shop By Price"><!--FTR is the Abbrevation of FILTER.-->
+                <div class="card flex flex-col justify-content-center gap-3">
+                  <div class="flex align-items-center">
+                      <p-checkbox 
+                          [(ngModel)]="FTRprice"
+                          label="Under 2500" 
+                          name="Under_2500" 
+                          value="2500" (onChange)="FTRPriceGot()" />
+                  </div>
+                  <div class="flex align-items-center">
+                      <p-checkbox 
+                          [(ngModel)]="FTRprice"
+                          label="2501-7500"
+                          name="2501-7500" 
+                          value="2501-7500" (onChange)="FTRPriceGot()" />
+                  </div>
+                  <div class="flex align-items-center">
+                    <p-checkbox 
+                        [(ngModel)]="FTRprice"
+                        label="7501-12999" 
+                        name="7501-12999" 
+                        value="7501-12999" (onChange)="FTRPriceGot()" />
+                </div>
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRprice"
+                      label="Over 13000" 
+                      name="Over_13000" 
+                      value="13000" (onChange)="FTRPriceGot()" />
+              </div>
+              </div>
+            </p-accordionTab>
+        </p-accordion>
     </div>
+    <!-- </div> -->
   </p-scrollPanel>
 </div>
 }
 <div class="container grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-[4%] lg:w-4/5">
   @for (newarrivaldata of newarrivalData; track $index) {
   <div
-    class="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg"
-    [routerLink]="['main/product-detail']"
+    class="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg hover:cursor-grab"
+    [routerLink]="['/main/product-detail',newarrivalData[$index].id]"
   >
     <img
       class="h-48 w-full object-cover object-center"

@@ -27,7 +27,6 @@ export class SignUpComponent {
 
     formJson.value['formtype'] = 'signup'; // Add the new key-value pair
     this.userRegisterJson = formJson.value;
-    console.log(this.userRegisterJson);
     this.authservice.signupuser(this.userRegisterJson).pipe(
       catchError((error)=>{
         throw error;
