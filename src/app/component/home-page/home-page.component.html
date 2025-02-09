@@ -34,9 +34,10 @@
 
 <section class=" w-11/12 h-[30%] mx-auto my-10">
     <h1 class="text-2xl my-10">Trending</h1>
-    <video controls autoplay loop>
+    <video autoplay muted loop playsinline preload="auto">
         <source src="../../../assets/images/preview.mp4" type="video/mp4">
-    </video>
+        Your browser does not support the video tag.
+    </video>      
 </section>
 
 
@@ -58,7 +59,7 @@
         </td>
         <td class="w-2/4 bg-neutral-100 shadow-md rounded-xl">
             <div class="flex flex-col items-center gap-y-0 font-extrabold barlow-fontfamily w-2/2">
-                <img src="../../../assets/images/Logo_NIKE.svg" class="w-fit md:h-32 size-8 drop-shadow-lg"/><!-- md:h-32 h-4-->
+                <img src="../../../assets/images/Logo_NIKE.svg" class="w-fit md:h-32 size-8 drop-shadow-lg"/>
                 <p class="text-center md:text-7xl text-5xl">APP<br>DROP</p>
                 
                 <img [src]="currentImg" class="w-fit md:h-64 h-20"/>
@@ -67,6 +68,28 @@
         </td>
     </tr>
 </table>
+
+<table class="w-11/12 m-auto">
+    <h1 class="text-2xl my-10">Just In Updated</h1>
+    <tr class="w-full">
+        <td class="w-2/4">
+            <img src="../../../assets/images/offer.svg" class="py-0 md:ml-24 md:scale-x-110"/><!---->
+        </td>
+        <td class="w-2/4 bg-neutral-100 shadow-md rounded-xl">
+            <div class="flex flex-col items-center gap-y-0 font-extrabold barlow-fontfamily w-2/2">
+                <img src="../../../assets/images/Logo_NIKE.svg" class="w-64 h-32 size-8 drop-shadow-lg"/>
+                <p class="text-center text-5xl md:text-7xl">APP<br>DROP</p>
+                
+                <img [src]="currentImg" class="w-fit md:h-64 h-20"/>
+                <button class="md:w-24 w-20 rounded-full text-white py-1 px-4 text-center bg-slate-800 lg:text-xl md:text-base text-xs">Shop</button>
+            </div>
+        </td>
+    </tr>
+</table>
+
+  
+
+
 
 <section class="w-12/12 h-[10%] text-center my-10">
     <p>Nike Dynamo 2 EasyOn</p>

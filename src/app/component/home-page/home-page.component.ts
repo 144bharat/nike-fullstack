@@ -11,7 +11,7 @@ import { StoreService } from '../../services/store.service';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent{
-  justInAlternateImgSrc:string[]=["../../../assets/images/thumbnail1.png","../../../assets/images/thumbnail4.svg"];
+  justInAlternateImgSrc:string[]=["../../../assets/images/ice-skate1.jpg","../../../assets/images/green-forest1.jpg"];
 
   intervalId:any=0;
   currentImg = this.justInAlternateImgSrc[0];
