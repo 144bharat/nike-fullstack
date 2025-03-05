@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "deployPath": "dist/browser"
+        }
+      }
+    ],
+    "routes": [
+      { "src": "^/\\_vercel/.*", "dest": "/\\_vercel/$1" },
+      { "src": "^/(.*)", "dest": "/index.html" }
+    ],
+    "cleanUrls": true
+  }
