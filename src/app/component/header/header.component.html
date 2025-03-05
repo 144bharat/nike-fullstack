@@ -43,7 +43,10 @@
         <a class="mr-5 hover:text-gray-900">Fourth Link</a> -->
 
       <div class="card">
-        <p-megaMenu [model]="items"></p-megaMenu>
+        <p-megaMenu #megaMenu
+        [model]="items"
+        (mouseenter)="onFocus($event)" 
+        (mouseleave)="onBlur($event)"></p-megaMenu>
       </div>
     </nav>
     <div class="inline-flex items-center py-1 px-3 text-base mt-4 md:mt-0">

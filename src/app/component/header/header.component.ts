@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, NavigationEnd, Router } from '@angular/router';
 import { InputTextModule } from 'primeng/inputtext';
 import { MegaMenuItem } from 'primeng/api';
 import { MegaMenuModule } from 'primeng/megamenu';
+import { MegaMenu } from 'primeng/megamenu';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -17,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
   items: MegaMenuItem[] | undefined;
   isShowOffer: boolean = false;
+  @ViewChild('megaMenu') menuBar: any;
   /**
    *
    */
@@ -363,4 +366,11 @@ export class HeaderComponent implements OnInit {
   toggleMenuDisplay() {
     this.showMenu = !this.showMenu;
   }
+  onBlur($event: any) {
+    this.menuBar.hide();
+  }
+  onFocus($event: any) {
+    this.menuBar.show();
+  }
+
 }

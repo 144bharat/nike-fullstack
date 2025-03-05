@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  baseurl:string='https://localhost:7042/api/';
+  baseurl:string='https://shopvillaapi.vercel.app/'; //'https://localhost:7042/api/';
   constructor(private http:HttpClient) { }
   signupuser(userJson:object):Observable<any>
   {

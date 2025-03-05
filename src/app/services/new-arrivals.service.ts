@@ -8,7 +8,7 @@ import { ProductFilteringInterface } from '../interfaces/product-filtering-inter
   providedIn: 'root'
 })
 export class NewArrivalsService {
-  baseurl:string='https://localhost:7042/api/';
+  baseurl:string='https://shopvillaapi.vercel.app/'; //'https://localhost:7042/api/';
   constructor(private http:HttpClient) { }
   postnewarrivalsCSV(files:FormData):Observable<any>
   {

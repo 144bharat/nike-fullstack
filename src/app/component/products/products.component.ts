@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit{
       this.storeservice.getProductsBasedOnRoute(TypeFilter,CategoryFilter,ItemCategoryFilter,SubCategoryFilter,AgeFilter)
       .subscribe(data => {
         this.newarrivalData = data;
-        
+        console.log(1 + " -- " + JSON.stringify(data));
       //Below line is to make the products list random.
       this.newarrivalData.sort(() => Math.random() - 0.5);
       });

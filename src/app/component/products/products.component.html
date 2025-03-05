@@ -81,26 +81,26 @@
   @for (newarrivaldata of newarrivalData; track $index) {
   <div
     class="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg hover:cursor-grab"
-    [routerLink]="['/main/product-detail',newarrivalData[$index].id]"
+    [routerLink]="['/main/product-detail',newarrivalData[$index].Id]"
   >
     <img
       class="h-48 w-full object-cover object-center"
-      src="{{ newarrivaldata.imgurl }}"
-      alt="{{ newarrivaldata.title }}"
+      src="../../../assets/product images/{{ newarrivaldata.ImgFileName }}"
+      alt="{{ newarrivaldata.Title }}"
     />
     <div class="p-4">
       <h2 class="mb-2 text-sm font-medium dark:text-white text-amber-600">
-        {{ newarrivaldata.titleslang }}
+        {{ newarrivaldata.Titleslang }}
       </h2>
       <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">
-        {{ newarrivaldata.title }}
+        {{ newarrivaldata.Title }}
       </h2>
       <p class="mb-2 text-md dark:text-gray-300 text-gray-700">
-        {{ newarrivaldata.subtitle }}
+        {{ newarrivaldata.Subtitle }}
       </p>
       <div class="flex items-center">
         <p class="mr-2 text-md font-semibold text-gray-900 dark:text-white">
-          MRP: {{ newarrivaldata.price }}
+          MRP: {{ newarrivaldata.Price }}
         </p>
         <p
         class="text-base font-medium text-gray-500 line-through dark:text-gray-300"
@@ -108,23 +108,23 @@
         $25.00
       </p>
       <p class="ml-auto text-base font-medium text-green-500">
-        {{ newarrivaldata.category }}
+        {{ newarrivaldata.Category }}
       </p>
     </div>
   </div>
   <p class="mb-2 text-md dark:text-gray-300 text-green-400">
-    @if(newarrivalData[$index].pieces >50)
+    @if(newarrivalData[$index].Pieces >50)
     {
       <p class="mb-2 text-md dark:text-gray-300 text-green-500">
-        {{ newarrivaldata.pieces }} items left in a stock.
+        {{ newarrivaldata.Pieces }} items left in a stock.
       </p>
-    }@else if (newarrivalData[$index].pieces>10) {
+    }@else if (newarrivalData[$index].Pieces>10) {
       <p class="mb-2 text-md dark:text-gray-300 text-amber-500">
-        Limited stock of {{ newarrivaldata.pieces }} items.
+        Limited stock of {{ newarrivaldata.Pieces }} items.
       </p>
     }@else {
       <p class="mb-2 text-md dark:text-gray-300 text-red-500">
-        Hurry! only {{ newarrivaldata.pieces }} items left in a stock.
+        Hurry! only {{ newarrivaldata.Pieces }} items left in a stock.
       </p>
     }
   </div>
