@@ -1,9 +1,9 @@
 <div class="flex relative">
-@if (newarrivalData.length>0) {
+@if (passingData.length>0) {
 <div class="lg:flex hidden sticky top-20 lg:w-1/5 h-[20%]">
   <p-scrollPanel [style]="{ width: '100%', height: '400px' }" styleClass="custombar1">
     <h2 class="text-2xl font-extrabold">
-        {{Title}} <span class="font-light">{{newarrivalData.length}}</span>
+        {{Title}} <span class="font-light">{{passingData.length}}</span>
     </h2>
     <!-- <div class="flex justify-center flex-col"> -->
       <div class="card flex flex-col justify-items-start items-center gap-3 px-5">
@@ -13,7 +13,7 @@
         <p>Accessories & Equipment</p>
       </div>
       <div class="card flex justify-content-center items-center px-5">
-        <p-accordion [activeIndex]="0">
+        <!-- <p-accordion [activeIndex]="0">
             <p-accordionTab header="Gender">
               <div class="card flex flex-col justify-content-center gap-3">
                 <div class="flex align-items-center">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             </p-accordionTab>
-            <p-accordionTab header="Shop By Price"><!--FTR is the Abbrevation of FILTER.-->
+            <p-accordionTab header="Shop By Price"   //Comment - FTR is the Abbrevation of FILTER.
                 <div class="card flex flex-col justify-content-center gap-3">
                   <div class="flex align-items-center">
                       <p-checkbox 
@@ -71,36 +71,110 @@
               </div>
               </div>
             </p-accordionTab>
+        </p-accordion> -->
+
+        <p-accordion [value]="0">
+          <p-accordion-panel value="0">
+            <p-accordion-header>Gender</p-accordion-header>
+            <p-accordion-content>
+              <div class="card flex flex-col justify-content-center gap-3">
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRgender"
+                      id="Male"
+                      name="Male" 
+                      value="men" (onChange)="FTRGenderGot()"/>
+                      <label for="Male"> Male </label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRgender"
+                      id="FeMale"
+                      name="Female" 
+                      value="women" (onChange)="FTRGenderGot()" />
+                      <label for="Female"> Female </label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRgender"
+                      id="NotToSay"
+                      name="Not_to_say" 
+                      value="Not to say" (onChange)="FTRGenderGot()" [disabled]="true"/>
+                      <label for="NotToSay"> Not To Say </label>
+                </div>
+              </div>
+            </p-accordion-content>
+          </p-accordion-panel>
+          <p-accordion-panel value="1">
+            <p-accordion-header>Shop By Price</p-accordion-header>
+            <p-accordion-content>
+              <div class="card flex flex-col justify-content-center gap-3">
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRprice"
+                      id="Under_2500" 
+                      name="Under_2500" 
+                      value="Under_2500" (onChange)="FTRPriceGot()" />
+                      <label for="Under_2500"> Under 2500 </label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRprice"
+                      id="2501-7500"
+                      name="2501-7500" 
+                      value="2501-7500" (onChange)="FTRPriceGot()" />
+                      <label for="2501-7500"> 2501-7500 </label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRprice"
+                      id="7501-12999" 
+                      name="7501-12999" 
+                      value="7501-12999" (onChange)="FTRPriceGot()" />
+                      <label for="7501-12999"> 7501-12999 </label>
+                </div>
+                <div class="flex align-items-center">
+                  <p-checkbox 
+                      [(ngModel)]="FTRprice"
+                      id="Over_13000" 
+                      name="Over_13000" 
+                      value="Over_13000" (onChange)="FTRPriceGot()" />
+                      <label for="Over_13000"> Over 13000 </label>
+                </div>
+              </div>
+            </p-accordion-content>
+          </p-accordion-panel>
         </p-accordion>
+        
     </div>
     <!-- </div> -->
   </p-scrollPanel>
 </div>
 }
 <div class="container grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-[4%] lg:w-4/5">
-  @for (newarrivaldata of newarrivalData; track $index) {
+  @for (record of passingData; track $index) {
   <div
     class="mx-auto mt-11 w-80 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg hover:cursor-grab"
-    [routerLink]="['/main/product-detail',newarrivalData[$index].Id]"
+    [routerLink]="['/main/product-detail',passingData[$index].Id]"
   >
     <img
       class="h-48 w-full object-cover object-center"
-      src="../../../assets/product images/{{ newarrivaldata.ImgFileName }}"
-      alt="{{ newarrivaldata.Title }}"
+      src="../../../assets/product images/{{ record.ImgFileName }}"
+      alt="{{ record.Title }}"
     />
     <div class="p-4">
       <h2 class="mb-2 text-sm font-medium dark:text-white text-amber-600">
-        {{ newarrivaldata.Titleslang }}
+        {{ record.Titleslang }}
       </h2>
       <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">
-        {{ newarrivaldata.Title }}
+        {{ record.Title }}
       </h2>
       <p class="mb-2 text-md dark:text-gray-300 text-gray-700">
-        {{ newarrivaldata.Subtitle }}
+        {{ record.Subtitle }}
       </p>
       <div class="flex items-center">
         <p class="mr-2 text-md font-semibold text-gray-900 dark:text-white">
-          MRP: {{ newarrivaldata.Price }}
+          MRP: {{ record.Price }}
         </p>
         <p
         class="text-base font-medium text-gray-500 line-through dark:text-gray-300"
@@ -108,23 +182,23 @@
         $25.00
       </p>
       <p class="ml-auto text-base font-medium text-green-500">
-        {{ newarrivaldata.Category }}
+        {{ record.Category }}
       </p>
     </div>
   </div>
   <p class="mb-2 text-md dark:text-gray-300 text-green-400">
-    @if(newarrivalData[$index].Pieces >50)
+    @if(passingData[$index].Pieces >50)
     {
       <p class="mb-2 text-md dark:text-gray-300 text-green-500">
-        {{ newarrivaldata.Pieces }} items left in a stock.
+        {{ record.Pieces }} items left in a stock.
       </p>
-    }@else if (newarrivalData[$index].Pieces>10) {
+    }@else if (passingData[$index].Pieces>10) {
       <p class="mb-2 text-md dark:text-gray-300 text-amber-500">
-        Limited stock of {{ newarrivaldata.Pieces }} items.
+        Limited stock of {{ record.Pieces }} items.
       </p>
     }@else {
       <p class="mb-2 text-md dark:text-gray-300 text-red-500">
-        Hurry! only {{ newarrivaldata.Pieces }} items left in a stock.
+        Hurry! only {{ record.Pieces }} items left in a stock.
       </p>
     }
   </div>

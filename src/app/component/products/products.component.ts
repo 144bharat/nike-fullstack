@@ -22,7 +22,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 export class ProductsComponent implements OnInit{
   Title:string = "";
   CountSkeleton:number[]=[1,2,3,4,5,6];
-  newarrivalData:ProductInterface[]=[];
+  passingData:ProductInterface[]=[];
+  completeData: ProductInterface[]=[];
   blockedDocument=signal(false);
   Category!: string;
   TypeOfProductRoute!: string;
@@ -42,10 +43,11 @@ export class ProductsComponent implements OnInit{
       this.blockedDocument.update(value=>true);
       this.storeservice.getProductsBasedOnRoute(TypeFilter,CategoryFilter,ItemCategoryFilter,SubCategoryFilter,AgeFilter)
       .subscribe(data => {
-        this.newarrivalData = data;
+        this.completeData = data; //This completeData is kept as a super data. And whole appication will use this super data by assigning it to the other variables and displayed.
+        this.passingData = this.completeData; // Here we are assigning data into passingData variable to pass it to the product html.
         console.log(1 + " -- " + JSON.stringify(data));
       //Below line is to make the products list random.
-      this.newarrivalData.sort(() => Math.random() - 0.5);
+      this.passingData.sort(() => Math.random() - 0.5);
       });
       setTimeout(() => {
         this.blockedDocument.update(value=>false);
@@ -55,9 +57,38 @@ export class ProductsComponent implements OnInit{
 
 public FTRGenderGot(){
   console.log(this.FTRgender);
+  debugger;
+  if(this.FTRgender.length > 0)
+  {
+    this.passingData = this.completeData.filter(({Category}) => this.FTRgender.includes(Category)) //Here either we got the filtered data based on gender or we got complete data.
+    console.log("\n My gender filtered Data: \n" + JSON.stringify(this.passingData));
+  }else{
+    this.passingData = this.completeData;
+  }
 }
 
 public FTRPriceGot(){
   console.log(this.FTRprice);
+  if(this.FTRprice.length > 0){
+    this.passingData = this.completeData.filter(({ Price }) => {
+      return this.FTRprice.some((condition) => {
+        if (condition === 'Under_2500') {
+          return Price < 2500; // Handle "Under_2500"
+        } else if (condition === '2501-7500') {
+          const [min, max] = [2501, 7500];
+          return Price >= min && Price <= max; // Handle "2501-7500"
+        } else if (condition === '7501-12999') {
+          const [min, max] = [7501, 12999];
+          return Price >= min && Price <= max; // Handle "7501-12999"
+        } else if (condition === 'Over_13000') {
+          return Price > 13000; // Handle "Over_13000"
+        } else {
+          return true; // Include all data if no specific condition is matched
+        }
+      });
+    });
+  }else{
+    this.passingData = this.completeData;
+  }
 }
 }

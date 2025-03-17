@@ -9,6 +9,6 @@ export class AuthService {
   constructor(private http:HttpClient) { }
   signupuser(userJson:object):Observable<any>
   {
-    return this.http.post<string>(this.baseurl+'Users'+'/signupuser',userJson, { headers: new HttpHeaders({ 'Content-Type': 'application/json' })});
+    return this.http.post<string>(this.baseurl+'Users',userJson, { headers: new HttpHeaders({ 'Content-Type': 'application/json' })}); //this.baseurl+'Users'+'/signupuser'
   }
 }
